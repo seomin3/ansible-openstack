@@ -1,0 +1,9 @@
+[submodule "roles/ansible-mysql"]
+	path = roles/ansible-mysql
+	url = git@github.com:seomin3/ansible-mysql.git
+[submodule "roles/ansible-keystone"]
+	path = roles/ansible-keystone
+	url = git@github.com:seomin3/ansible-keystone.git
+[submodule "roles/ansible-rabbitmq"]
+	path = roles/ansible-rabbitmq
+	url = git@github.com:seomin3/ansible-rabbitmq.git
