@@ -1,0 +1,16 @@
+---
+- name: install openstack tools
+  yum: name="{{ item }}" state=present
+  with_items:
+    - openstack-utils
+    - dnsmasq-utils
+
+- name: install chrony
+  yum: name=chrony state=present
+
+- name: allow openstack node to the chrony
+  lineinfile:
+    dest: /etc/chrony.conf
+    line: "allow {{ mgmt_network }}"
+    backup: yes
+  notify: restart chrony

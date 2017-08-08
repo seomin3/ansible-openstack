@@ -1,0 +1,42 @@
+---
+- name: change the hostname
+  hostname: name="{{ inventory_hostname }}"
+
+- name: enable the 3rd repository
+  yum: name="{{ item }}" state=present
+  with_items:
+    - epel-release
+    - "centos-release-openstack-{{ openstack_release }}"
+
+- name: install base package
+  yum: name="{{ item }}" state=present
+  with_items:
+    - open-vm-tools
+    - dstat
+    - htop
+    - python-pip
+    - libselinux-python
+
+- name: install the openstack client
+  yum: name=python-openstackclient state=present
+
+- name: disable selinux
+  lineinfile:
+    dest: /etc/selinux/config
+    regexp: SELINUX=enforcing
+    line: SELINUX=disabled
+    backup: yes
+
+- name: provider interface
+  template:
+    src: centos/ifcfg-ens192.cfg.j2
+    dest: /etc/sysconfig/network-scripts/ifcfg-ens192.cfg
+
+- name: set hosts
+  template:
+    src: centos/hosts.j2
+    dest: /etc/hosts
+    backup: yes
+
+- name: upgrade package
+  yum: name=* state=latest
