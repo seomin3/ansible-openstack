@@ -1,0 +1,1 @@
+# Openstack(Ocata) prepare playbook

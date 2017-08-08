@@ -1,0 +1,6 @@
+---
+- name: prepare host
+  hosts: "{{ host_group | default('openstack') }}"
+  roles:
+    - openstack-prepare
+  become: yes

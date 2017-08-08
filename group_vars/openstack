@@ -1,0 +1,22 @@
+---
+openstack_release: newton
+
+# netowrk
+mgmt_network: 192.168.30.0/26
+mysql_remote_host: "{{ mgmt_network.split('.')[0] }}.{{ mgmt_network.split('.')[1] }}.{{ mgmt_network.split('.')[2] }}.%"
+
+# Openstack password
+mysql_root_pass: changeme
+rabbitmq_pass: changeme
+keystone_db_pass: changeme
+keystone_admin_token: changeme
+openstack_admin_pass: changeme
+keystone_demo_pass: changeme
+glance_db_pass: changeme
+glance_admin_pass: changeme
+
+# Openstack endpoint
+keystone_internal_endpoint: "http://{{ hostvars[groups['ocata-cont'][0]].inventory_hostname }}:35357/v3"
+
+# Openstack configuration file
+keystone_config_dir: /etc/keystone/

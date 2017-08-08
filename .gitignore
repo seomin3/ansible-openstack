@@ -1,6 +1,5 @@
 .ftpconfig
 .idea/
-hosts
 *.retry
 docs/
 tmp/

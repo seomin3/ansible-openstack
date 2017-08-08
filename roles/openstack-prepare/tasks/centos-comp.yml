@@ -1,0 +1,9 @@
+---
+- name: install chrony for compute
+  yum: name=chrony state=present
+
+- name: conntect to the controller
+  template:
+    src: centos/chrony.conf.j2
+    dest: /etc/chrony.conf
+  notify: restart chrony

@@ -1,0 +1,6 @@
+auto br-vxlan
+iface br-vxlan inet manual
+    bridge_stp off
+    bridge_waitport 0
+    bridge_fd 0
+    bridge_ports {{ eth_vxlan }}

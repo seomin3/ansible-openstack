@@ -1,0 +1,13 @@
+---
+- fail: msg="only support the CentOS"
+  when: ansible_distribution != "CentOS"
+
+- include: centos-universal.yml
+
+- include: centos-cont.yml
+  when: "'openstack-cont' in group_names"
+- include: centos-comp.yml
+  when: "'openstack-comp' in group_names"
+
+- include: memcached-cont.yml
+  when: "'ocata-cont' in group_names"
