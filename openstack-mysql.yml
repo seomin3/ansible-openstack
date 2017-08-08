@@ -1,0 +1,8 @@
+---
+- name: install mysql server
+  hosts: "{{ host_group | default('openstack-cont') }}"
+  roles:
+    - ansible-mysql
+  vars:
+    mysql_root_password_update: yes
+    mysql_slow_query_log_enabled: yes
