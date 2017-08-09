@@ -1,0 +1,22 @@
+---
+- name: install neutron-controller
+  hosts: "{{ host_group | default('openstack-cont') }}"
+  roles:
+    - ansible-neutron-controller
+  vars:
+    # db
+    openstack_neutron_controller_neutron_database_url: "mysql+pymysql://neutron:{{ MYSQL_NEUTRON_PASS }}@{{ DATABASE_HOSTNAME }}/neutron"
+    # auth
+    openstack_neutron_controller_nova_password: "{{ NOVA_PASS }}"
+    openstack_neutron_controller_neutron_password: "{{ NEUTRON_PASS }}"
+    openstack_neutron_controller_demo_pass: "{{ DEMO_PASS }}"
+    openstack_neutron_controller_neutron_metadata_secret: 'meta_secret'
+    # openstack endpoint
+    openstack_neutron_controller_keystone_hostname: "{{ ansible_hostname }}"
+    openstack_neutron_controller_glance_hostname: "{{ ansible_hostname }}"
+    openstack_neutron_controller_neutron_hostname: "{{ ansible_hostname }}"
+    openstack_neutron_controller_vncserver_proxyclient_address: "{{ ansible_hostname }}"
+    # rabbitmq
+    openstack_neutron_controller_rabbit_hostname: "{{ ansible_hostname }}"
+    openstack_neutron_controller_rabbit_username: "{{ RABBIT_USER }}"
+    openstack_neutron_controller_rabbit_password: "{{ RABBIT_PASS }}"

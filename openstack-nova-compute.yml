@@ -9,9 +9,9 @@
     openstack_nova_compute_nova_api_database_url: "mysql+pymysql://nova_api:{{ MYSQL_NOVA_API_PASS }}@{{ DATABASE_HOSTNAME }}/nova_api"
     # auth
     openstack_nova_compute_nova_password: "{{ NOVA_PASS }}"
+    openstack_nova_compute_neutron_password: "{{ NEUTRON_PASS }}"
     openstack_nova_compute_demo_pass: "{{ DEMO_PASS }}"
     openstack_nova_compute_neutron_metadata_secret: 'meta_secret'
-    openstack_nova_compute_neutron_password: "{{ NEUTRON_PASS }}"
     # openstack endpoint
     openstack_nova_compute_keystone_hostname: "{{ ansible_hostname }}"
     openstack_nova_compute_glance_hostname: "{{ ansible_hostname }}"

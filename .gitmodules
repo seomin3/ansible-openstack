@@ -16,3 +16,9 @@
 [submodule "roles/ansible-nova-compute"]
 	path = roles/ansible-nova-compute
 	url = git@github.com:seomin3/ansible-nova-compute.git
+[submodule "roles/ansible-neutron-controller"]
+	path = roles/ansible-neutron-controller
+	url = git@github.com:seomin3/ansible-neutron-controller.git
+[submodule "roles/ansible-neutron-compute"]
+	path = roles/ansible-neutron-compute
+	url = git@github.com:seomin3/ansible-neutron-compute.git
