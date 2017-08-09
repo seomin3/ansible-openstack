@@ -27,6 +27,13 @@
     line: SELINUX=disabled
     backup: yes
 
+- name: set alias
+  lineinfile:
+    dest: /root/.bashrc
+    line: "{{ item }}"
+  with_items:
+    - alias opsconf="grep -v '^$\|^\s*\#' "
+
 - name: provider interface
   template:
     src: centos/ifcfg-ens192.cfg.j2

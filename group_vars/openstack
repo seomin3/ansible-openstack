@@ -5,18 +5,28 @@ openstack_release: newton
 mgmt_network: 192.168.30.0/26
 mysql_remote_host: "{{ mgmt_network.split('.')[0] }}.{{ mgmt_network.split('.')[1] }}.{{ mgmt_network.split('.')[2] }}.%"
 
-# Openstack password
-mysql_root_pass: changeme
-rabbitmq_pass: changeme
-keystone_db_pass: changeme
-keystone_admin_token: changeme
-openstack_admin_pass: changeme
-keystone_demo_pass: changeme
-glance_db_pass: changeme
-glance_admin_pass: changeme
+# rabbitmq
+RABBIT_USER: openstack
+RABBIT_PASS: openstack
 
-# Openstack endpoint
-keystone_internal_endpoint: "http://{{ hostvars[groups['ocata-cont'][0]].inventory_hostname }}:35357/v3"
+# mysql
+DATABASE_HOSTNAME: "{{ ansible_hostname }}"
+MYSQL_REMOTE_HOST: 192.168.30.%
 
-# Openstack configuration file
-keystone_config_dir: /etc/keystone/
+# keystone
+MYSQL_KEYSTONE_PASS: keystone
+ADMIN_TOKEN: admin_token
+ADMIN_PASS: admin
+DEMO_PASS: demo
+
+# glance
+MYSQL_GLANCE_PASS: glance
+GLANCE_PASS: glance
+
+# nova
+MYSQL_NOVA_PASS: nova
+NOVA_PASS: nova
+
+# neutron
+MYSQL_NEUTRON_PASS: neutron
+NEUTRON_PASS: nova

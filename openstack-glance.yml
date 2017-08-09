@@ -1,0 +1,14 @@
+---
+- name: install glance
+  hosts: "{{ host_group | default('openstack-cont') }}"
+  roles:
+    - ansible-glance
+  vars:
+    openstack_glance_database_url: "mysql://glance:{{ MYSQL_GLANCE_PASS }}@{{ DATABASE_HOSTNAME }}/glance"
+    openstack_glance_pass: "{{ GLANCE_PASS }}"
+    openstack_glance_demo_pass: "{{ DEMO_PASS }}"
+    openstack_glance_keystone_hostname: "{{ ansible_hostname }}"
+    openstack_glance_hostname: "{{ ansible_hostname }}"
+    openstack_glance_rabbit_hostname: "{{ ansible_hostname }}"
+    openstack_glance_rabbit_username: "{{ RABBIT_USER }}"
+    openstack_glance_rabbit_password: "{{ RABBIT_PASS }}"

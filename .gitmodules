@@ -7,3 +7,6 @@
 [submodule "roles/ansible-rabbitmq"]
 	path = roles/ansible-rabbitmq
 	url = git@github.com:seomin3/ansible-rabbitmq.git
+[submodule "roles/ansible-glance"]
+	path = roles/ansible-glance
+	url = git@github.com:seomin3/ansible-glance.git

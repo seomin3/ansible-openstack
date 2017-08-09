@@ -11,5 +11,5 @@
     rabbitmq_plugins:
       - rabbitmq_management
     rabbitmq_users:
-      - user:     openstack
-        password: openstack
+      - user:     "{{ RABBIT_USER }}"
+        password: "{{ RABBIT_PASS }}"
