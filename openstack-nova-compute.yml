@@ -1,0 +1,23 @@
+---
+- name: install nova-compute
+  hosts: "{{ host_group | default('openstack-comp') }}"
+  roles:
+    - ansible-nova-compute
+  vars:
+    # db
+    openstack_nova_compute_nova_database_url: "mysql+pymysql://nova:{{ MYSQL_NOVA_PASS }}@{{ DATABASE_HOSTNAME }}/nova"
+    openstack_nova_compute_nova_api_database_url: "mysql+pymysql://nova_api:{{ MYSQL_NOVA_API_PASS }}@{{ DATABASE_HOSTNAME }}/nova_api"
+    # auth
+    openstack_nova_compute_nova_password: "{{ NOVA_PASS }}"
+    openstack_nova_compute_demo_pass: "{{ DEMO_PASS }}"
+    openstack_nova_compute_neutron_metadata_secret: 'meta_secret'
+    openstack_nova_compute_neutron_password: "{{ NEUTRON_PASS }}"
+    # openstack endpoint
+    openstack_nova_compute_keystone_hostname: "{{ ansible_hostname }}"
+    openstack_nova_compute_glance_hostname: "{{ ansible_hostname }}"
+    openstack_nova_compute_neutron_hostname: "{{ ansible_hostname }}"
+    openstack_nova_compute_vncserver_proxyclient_address: "{{ ansible_hostname }}"
+    # rabbitmq
+    openstack_nova_compute_rabbit_hostname: "{{ ansible_hostname }}"
+    openstack_nova_compute_rabbit_username: "{{ RABBIT_USER }}"
+    openstack_nova_compute_rabbit_password: "{{ RABBIT_PASS }}"

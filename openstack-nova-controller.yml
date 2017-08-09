@@ -1,0 +1,24 @@
+---
+- name: install nova-controller
+  hosts: "{{ host_group | default('openstack-cont') }}"
+  roles:
+    - ansible-nova-controller
+  vars:
+    # db
+    openstack_nova_controller_nova_database_url: "mysql+pymysql://nova:{{ MYSQL_NOVA_PASS }}@{{ DATABASE_HOSTNAME }}/nova"
+    openstack_nova_controller_nova_api_database_url: "mysql+pymysql://nova_api:{{ MYSQL_NOVA_API_PASS }}@{{ DATABASE_HOSTNAME }}/nova_api"
+    # auth
+    openstack_nova_controller_nova_password: "{{ NOVA_PASS }}"
+    openstack_nova_controller_demo_pass: "{{ DEMO_PASS }}"
+    openstack_nova_controller_neutron_metadata_secret: 'meta_secret'
+    openstack_nova_controller_neutron_password: "{{ NEUTRON_PASS }}"
+    # openstack endpoint
+    openstack_nova_controller_keystone_hostname: "{{ ansible_hostname }}"
+    openstack_nova_controller_glance_hostname: "{{ ansible_hostname }}"
+    openstack_nova_controller_neutron_hostname: "{{ ansible_hostname }}"
+    openstack_nova_controller_vncserver_proxyclient_address: "{{ ansible_hostname }}"
+    # rabbitmq
+    openstack_nova_controller_rabbit_hostname: "{{ ansible_hostname }}"
+    openstack_nova_controller_rabbit_username: "{{ RABBIT_USER }}"
+    openstack_nova_controller_rabbit_password: "{{ RABBIT_PASS }}"
+    openstack_nova_controller_demo_pass: "{{ DEMO_PASS }}"

@@ -25,8 +25,9 @@ GLANCE_PASS: glance
 
 # nova
 MYSQL_NOVA_PASS: nova
+MYSQL_NOVA_API_PASS: nova_api
 NOVA_PASS: nova
 
 # neutron
 MYSQL_NEUTRON_PASS: neutron
-NEUTRON_PASS: nova
+NEUTRON_PASS: neutron

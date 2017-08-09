@@ -10,3 +10,9 @@
 [submodule "roles/ansible-glance"]
 	path = roles/ansible-glance
 	url = git@github.com:seomin3/ansible-glance.git
+[submodule "roles/ansible-nova-controller"]
+	path = roles/ansible-nova-controller
+	url = git@github.com:seomin3/ansible-nova-controller.git
+[submodule "roles/ansible-nova-compute"]
+	path = roles/ansible-nova-compute
+	url = git@github.com:seomin3/ansible-nova-compute.git
