@@ -1,4 +1,5 @@
 ---
+
 - name: change the hostname
   hostname: name="{{ inventory_hostname }}"
 
@@ -41,5 +42,5 @@
     backup: yes
 
 - name: upgrade package
-  yum: name=* state=latest
+  yum: name=* state=latest exclude=zeromq
   run_once: true

@@ -25,3 +25,6 @@
 [submodule "roles/interfaces"]
 	path = roles/interfaces
 	url = https://github.com/michaelrigart/ansible-role-interfaces.git
+[submodule "roles/ansible-horizon"]
+	path = roles/ansible-horizon
+	url = git@github.com:seomin3/ansible-horizon.git

@@ -21,6 +21,7 @@ MYSQL_KEYSTONE_PASS: keystone
 ADMIN_TOKEN: admin_token
 ADMIN_PASS: admin
 DEMO_PASS: demo
+APACHE_USER: keystone
 
 # glance
 MYSQL_GLANCE_PASS: glance

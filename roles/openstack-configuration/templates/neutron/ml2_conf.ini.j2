@@ -1,0 +1,30 @@
+[DEFAULT]
+debug = true
+verbose = true
+
+[ml2]
+type_drivers = flat,vlan,vxlan
+tenant_network_types = vxlan
+mechanism_drivers = openvsitch,l2population
+extension_drivers = port_security
+
+[ml2_type_flat]
+flat_networks = provider
+
+[ml2_type_vlan]
+network_vlan_ranges = physnet1
+
+[ml2_type_vxlan]
+vni_ranges = {{ vlan.start }}:{{ vlan.end }}
+
+[securitygroup]
+firewall_driver = iptables_hybrid
+enable_ipset = True
+
+[ovs]
+bridge_mappings = physnet1:{{ ovs_provider.bridge }}
+local_ip = {{ ovs_provider.address }}
+
+[agent]
+tunnel_types = vxlan
+l2_population = True
