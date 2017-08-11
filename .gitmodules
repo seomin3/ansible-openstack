@@ -22,3 +22,6 @@
 [submodule "roles/ansible-neutron-compute"]
 	path = roles/ansible-neutron-compute
 	url = git@github.com:seomin3/ansible-neutron-compute.git
+[submodule "roles/interfaces"]
+	path = roles/interfaces
+	url = https://github.com/michaelrigart/ansible-role-interfaces.git

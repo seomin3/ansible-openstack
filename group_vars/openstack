@@ -4,6 +4,9 @@ openstack_release: newton
 # netowrk
 mgmt_network: 192.168.30.0/26
 mysql_remote_host: "{{ mgmt_network.split('.')[0] }}.{{ mgmt_network.split('.')[1] }}.{{ mgmt_network.split('.')[2] }}.%"
+vlan:
+  start: 100
+  end: 199
 
 # rabbitmq
 RABBIT_USER: openstack
