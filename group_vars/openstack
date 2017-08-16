@@ -2,7 +2,7 @@
 openstack_release: newton
 
 # netowrk
-mgmt_network: 192.168.30.0/26
+mgmt_network: 192.168.61.0/24
 mysql_remote_host: "{{ mgmt_network.split('.')[0] }}.{{ mgmt_network.split('.')[1] }}.{{ mgmt_network.split('.')[2] }}.%"
 vlan:
   start: 100
@@ -14,7 +14,7 @@ RABBIT_PASS: openstack
 
 # mysql
 DATABASE_HOSTNAME: "{{ ansible_hostname }}"
-MYSQL_REMOTE_HOST: 192.168.30.%
+MYSQL_REMOTE_HOST: "{{ mysql_remote_host }}"
 
 # keystone
 MYSQL_KEYSTONE_PASS: keystone
