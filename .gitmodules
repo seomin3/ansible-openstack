@@ -1,30 +1,30 @@
 [submodule "roles/ansible-mysql"]
 	path = roles/ansible-mysql
-	url = git@github.com:seomin3/ansible-mysql.git
+	url = https://github.com/seomin3/ansible-mysql.git
 [submodule "roles/ansible-keystone"]
 	path = roles/ansible-keystone
-	url = git@github.com:seomin3/ansible-keystone.git
+	url = https://github.com/seomin3/ansible-keystone.git
 [submodule "roles/ansible-rabbitmq"]
 	path = roles/ansible-rabbitmq
-	url = git@github.com:seomin3/ansible-rabbitmq.git
+	url = https://github.com/seomin3/ansible-rabbitmq.git
 [submodule "roles/ansible-glance"]
 	path = roles/ansible-glance
-	url = git@github.com:seomin3/ansible-glance.git
+	url = https://github.com/seomin3/ansible-glance.git
 [submodule "roles/ansible-nova-controller"]
 	path = roles/ansible-nova-controller
-	url = git@github.com:seomin3/ansible-nova-controller.git
+	url = https://github.com/seomin3/ansible-nova-controller.git
 [submodule "roles/ansible-nova-compute"]
 	path = roles/ansible-nova-compute
-	url = git@github.com:seomin3/ansible-nova-compute.git
+	url = https://github.com/seomin3/ansible-nova-compute.git
 [submodule "roles/ansible-neutron-controller"]
 	path = roles/ansible-neutron-controller
-	url = git@github.com:seomin3/ansible-neutron-controller.git
+	url = https://github.com/seomin3/ansible-neutron-controller.git
 [submodule "roles/ansible-neutron-compute"]
 	path = roles/ansible-neutron-compute
-	url = git@github.com:seomin3/ansible-neutron-compute.git
+	url = https://github.com/seomin3/ansible-neutron-compute.git
 [submodule "roles/interfaces"]
 	path = roles/interfaces
 	url = https://github.com/michaelrigart/ansible-role-interfaces.git
 [submodule "roles/ansible-horizon"]
 	path = roles/ansible-horizon
-	url = git@github.com:seomin3/ansible-horizon.git
+	url = https://github.com/seomin3/ansible-horizon.git
