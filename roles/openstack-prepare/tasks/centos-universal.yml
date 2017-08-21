@@ -34,6 +34,7 @@
     line: "{{ item }}"
   with_items:
     - alias opsconf="grep -v '^$\|^\s*\#' "
+    - source ~/keystonerc_admin
 
 - name: set hosts
   template:

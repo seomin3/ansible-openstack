@@ -7,6 +7,9 @@
   vars:
     mysql_root_password_update: yes
     mysql_slow_query_log_enabled: yes
+    mysql_max_connections: '1024'
+    mysql_innodb_buffer_pool_size: '16385M'
+    mysql_innodb_log_file_size: '256M'
 
 - name: create openstack databases
   hosts: "{{ host_group | default('openstack-cont') }}"

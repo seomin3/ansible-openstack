@@ -14,3 +14,10 @@
     line: "allow {{ mgmt_network }}"
     backup: yes
   notify: restart chrony
+
+- name: incaease pam limit for mariadb
+  pam_limits:
+    domain: mysql
+    limit_type: '-'
+    limit_item: nofile
+    value: 4096
