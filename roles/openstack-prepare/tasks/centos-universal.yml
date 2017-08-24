@@ -1,4 +1,5 @@
 ---
+
 - name: change the hostname
   hostname: name="{{ inventory_hostname }}"
 
@@ -27,10 +28,13 @@
     line: SELINUX=disabled
     backup: yes
 
-- name: provider interface
-  template:
-    src: centos/ifcfg-ens192.cfg.j2
-    dest: /etc/sysconfig/network-scripts/ifcfg-ens192.cfg
+- name: set alias
+  lineinfile:
+    dest: /root/.bashrc
+    line: "{{ item }}"
+  with_items:
+    - alias opsconf="grep -v '^$\|^\s*\#' "
+    - source ~/keystonerc_admin
 
 - name: set hosts
   template:
@@ -39,4 +43,5 @@
     backup: yes
 
 - name: upgrade package
-  yum: name=* state=latest
+  yum: name=* state=latest exclude=zeromq
+  run_once: true

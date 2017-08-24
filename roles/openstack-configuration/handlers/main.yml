@@ -1,0 +1,12 @@
+---
+
+- name: Restart neutron server
+  service:
+    name: 'neutron-server'
+    state: restarted
+  when: "'openstack-cont' in group_names"
+
+- name: Restart openvswitch agent
+  service:
+    name: 'neutron-openvswitch-agent'
+    state: restarted

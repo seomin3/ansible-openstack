@@ -10,4 +10,4 @@
   when: "'openstack-comp' in group_names"
 
 - include: memcached-cont.yml
-  when: "'ocata-cont' in group_names"
+  when: "'openstack-cont' in group_names"

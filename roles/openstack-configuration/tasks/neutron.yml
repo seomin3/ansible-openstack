@@ -1,0 +1,18 @@
+---
+
+- name: set ml2_conf.ini
+  template:
+    src: neutron/ml2_conf.ini.j2
+    dest: /etc/neutron/plugins/ml2/ml2_conf.ini
+    backup: yes
+  notify:
+    - Restart neutron server
+    - Restart openvswitch agent
+
+- name: set l3_agent.ini
+  template:
+    src: neutron/l3_agent.ini.j2
+    dest: /etc/neutron/plugins/ml2/openvswitch_agent.ini
+    backup: yes
+  notify:
+    - Restart openvswitch agent

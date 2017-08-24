@@ -1,0 +1,50 @@
+---
+
+- name: install mysql server
+  hosts: "{{ host_group | default('openstack-cont') }}"
+  roles:
+    - ansible-mysql
+  vars:
+    mysql_root_password_update: yes
+    mysql_slow_query_log_enabled: yes
+    mysql_max_connections: '1024'
+    mysql_innodb_buffer_pool_size: '16385M'
+    mysql_innodb_log_file_size: '256M'
+
+- name: create openstack databases
+  hosts: "{{ host_group | default('openstack-cont') }}"
+  tasks:
+  - name: create openstack db
+    mysql_db: name="{{ item }}" state=present
+    with_items:
+      - keystone
+      - glance
+      - nova
+      - nova_api
+      - neutron
+
+  - name: create openstack user of localhost
+    mysql_user:
+      name: "{{ item.name }}"
+      password: "{{ item.pass }}"
+      host: localhost
+      priv: "{{ item.name }}.*:ALL"
+    with_items:
+      - { name: keystone, pass: "{{ MYSQL_KEYSTONE_PASS }}" }
+      - { name: glance, pass: "{{ MYSQL_GLANCE_PASS }}" }
+      - { name: nova, pass: "{{ MYSQL_NOVA_PASS }}" }
+      - { name: nova_api, pass: "{{ MYSQL_NOVA_API_PASS }}" }
+      - { name: neutron, pass: "{{ MYSQL_NEUTRON_PASS }}" }
+
+  - name: create glance user of remote
+    mysql_user:
+      name: "{{ item.name }}"
+      password: "{{ item.pass }}"
+      host: "{{ MYSQL_REMOTE_HOST }}"
+      priv: "{{ item.name }}.*:ALL"
+    with_items:
+      - { name: keystone, pass: "{{ MYSQL_KEYSTONE_PASS }}" }
+      - { name: glance, pass: "{{ MYSQL_GLANCE_PASS }}" }
+      - { name: nova, pass: "{{ MYSQL_NOVA_PASS }}" }
+      - { name: nova_api, pass: "{{ MYSQL_NOVA_API_PASS }}" }
+      - { name: neutron, pass: "{{ MYSQL_NEUTRON_PASS }}" }

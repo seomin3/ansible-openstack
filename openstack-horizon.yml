@@ -1,0 +1,8 @@
+---
+
+- name: install horizon
+  hosts: "{{ host_group | default('openstack-cont') }}"
+  roles:
+    - ansible-horizon
+  vars:
+    openstack_horizon_keystone_hostname: "{{ ansible_hostname }}"

@@ -1,0 +1,15 @@
+---
+- name: install rabbitmq server
+  hosts: "{{ host_group | default('openstack-cont') }}"
+  roles:
+    - ansible-rabbitmq
+  vars:
+    rabbitmq_conf_env:
+      NODENAME: rabbit
+      HOSTNAME: "{{ inventory_hostname }}"
+    rabbitmq_cluster: False
+    rabbitmq_plugins:
+      - rabbitmq_management
+    rabbitmq_users:
+      - user:     "{{ RABBIT_USER }}"
+        password: "{{ RABBIT_PASS }}"

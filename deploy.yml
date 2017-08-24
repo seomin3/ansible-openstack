@@ -1,0 +1,13 @@
+---
+
+- include: openstack-prepare.yml
+- include: openstack-rabbitmq.yml
+- include: openstack-mysql.yml
+- include: openstack-keystone.yml
+- include: openstack-glance.yml
+- include: openstack-nova-controller.yml
+- include: openstack-nova-compute.yml
+- include: openstack-neutron-controller.yml
+- include: openstack-neutron-compute.yml
+- include: openstack-horizon.yml
+#- include: openstack-reconfigure.yml
